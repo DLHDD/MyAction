@@ -201,61 +201,61 @@ function batchReplace() {
 
 async function downloader_jd() {
     if (/require\(['"`]{1}.\/jdCookie.js['"`]{1}\)/.test(remoteContent))
-        await download("https://github.com/wuzhi01/MyActions/raw/main/jdCookie.js", "./jdCookie.js", "京东Cookies");
+        await download("https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdCookie.js", "./jdCookie.js", "京东Cookies");
     if (remoteContent.indexOf("jdFruitShareCodes") > 0) {
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdFruitShareCodes.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdFruitShareCodes.js",
             "./jdFruitShareCodes.js",
             "东东农场互助码"
         );
     }
     if (remoteContent.indexOf("jdPetShareCodes") > 0) {
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdPetShareCodes.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdPetShareCodes.js",
             "./jdPetShareCodes.js",
             "京东萌宠"
         );
     }
     if (remoteContent.indexOf("jdPlantBeanShareCodes") > 0) {
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdPlantBeanShareCodes.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdPlantBeanShareCodes.js",
             "./jdPlantBeanShareCodes.js",
             "种豆得豆互助码"
         );
     }
     if (remoteContent.indexOf("jdSuperMarketShareCodes") > 0)
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdSuperMarketShareCodes.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdSuperMarketShareCodes.js",
             "./jdSuperMarketShareCodes.js",
             "京小超互助码"
         );
     if (remoteContent.indexOf("jdFactoryShareCodes") > 0) {
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdFactoryShareCodes.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdFactoryShareCodes.js",
             "./jdFactoryShareCodes.js",
             "东东工厂互助码"
         );
     }
     if (remoteContent.indexOf("jdDreamFactoryShareCodes") > 0) {
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdDreamFactoryShareCodes.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdDreamFactoryShareCodes.js",
             "./jdDreamFactoryShareCodes.js",
             "京喜工厂互助码"
         );
     }
     if (remoteContent.indexOf("new Env('京喜农场')") > 0) {
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdJxncTokens.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdJxncTokens.js",
             "./jdJxncTokens.js",
             "京喜农场Token"
         );
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/jdJxncShareCodes.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jdJxncShareCodes.js",
             "./jdJxncShareCodes.js",
             "京喜农场分享码"
         );
         await download(
-            "https://github.com/wuzhi01/MyActions/raw/main/USER_AGENTS.js",
+            "https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/USER_AGENTS.js",
             "./USER_AGENTS.js",
             "USER_AGENTS"
         );
@@ -263,11 +263,11 @@ async function downloader_jd() {
 }
 
 async function downloader_notify() {
-    await download("https://github.com/wuzhi01/MyActions/raw/main/sendNotify.js", "./sendNotify.js", "统一通知");
+    await download("https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/sendNotify.js", "./sendNotify.js", "统一通知");
 }
 
 async function downloader_user_agents() {
-    await download("https://github.com/wuzhi01/MyActions/raw/main/USER_AGENTS.js", "./USER_AGENTS.js", "云端UA");
+    await download("https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/USER_AGENTS.js", "./USER_AGENTS.js", "云端UA");
 }
 
 async function download(url, path, target) {

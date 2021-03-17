@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 京小超领蓝币
+name: 京东宠汪汪喂食🐕
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "5 16 * * *"
+        - cron: "15 */1 * * *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_blueCoin
+        types: jd_joy_feedPets
 
 jobs:
     build:
@@ -25,7 +25,7 @@ jobs:
             - name: npm install
               run: |
                   npm install
-            - name: "运行【京小超领蓝币(小费)】"
+            - name: "运行 【京东宠汪汪喂食🐕】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -46,6 +46,5 @@ jobs:
                   QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
-                  MARKET_COIN_TO_BEANS: ${{ github.event.client_payload.MARKET_COIN_TO_BEANS || secrets.MARKET_COIN_TO_BEANS }}
-                  MARKET_REWARD_NOTIFY: ${{ github.event.client_payload.MARKET_REWARD_NOTIFY || secrets.MARKET_REWARD_NOTIFY }}
-                  SYNCURL: https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jd_blueCoin.js
+                  JOY_FEED_COUNT: ${{ github.event.client_payload.JOY_FEED_COUNT || secrets.JOY_FEED_COUNT }}
+                  SYNCURL: https://raw.githubusercontent.com/djc-Sherlock/MyAction/main/jd_joy_feedPets.js
