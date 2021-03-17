@@ -10,7 +10,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: jd_xtg
+    types: jd_sxj
 jobs:
   build:
 
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: zero205/JD
+          repository: djc-Sherlock/MyAction
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
