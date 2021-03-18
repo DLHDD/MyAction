@@ -175,7 +175,7 @@ function getJxNc(){
 
   function JXNC_taskurl(function_path, body) {
     return {
-      url: `${JXNC_API_HOST}cubeactive/farm/${function_path}?${body}&farm_jstoken=&phoneid=&timestamp=&sceneval=2&g_login_type=1&_=${Date.now()}&g_ty=ls`,
+      url: `${JXNC_API_HOST}cubeactive/farm/${function_path}?${body}&farm_jstoken=${$.currentToken['farm_jstoken']}&phoneid=${$.currentToken['phoneid']}&timestamp=${$.currentToken['timestamp']}&sceneval=2&g_login_type=1&callback=whyour&_=${Date.now()}&g_ty=ls`,
       headers: {
         Cookie: cookie,
         Accept: `*/*`,
