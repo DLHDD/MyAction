@@ -20,7 +20,6 @@ cron "5 0 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_
 =================Surge==============
 [Script]
 摇京豆 = type=cron,cronexp="5 0 * * *",wake-system=1,timeout=3600,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js
-
 ============小火箭=========
 摇京豆 = type=cron,script-path=https://gitee.com/lxk0301/jd_scripts/raw/master/jd_club_lottery.js, cronexpr="5 0 * * *", timeout=3600, enable=true
 */
@@ -67,7 +66,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         continue
       }
       await clubLottery();
-      //await shakeSign();
+      // await shakeSign();
       await showMsg();
     }
   }
@@ -354,17 +353,23 @@ async function shakeSign() {
   let body = {"floorToken": "df6e1996-0f6f-4c29-92b9-22416fc1f68a", "dataSourceCode": "popUpInfo", "argMap": {}};
   const res = await pg_interact_interface_invoke(body);
   if (res.success && res.data) {
-    if (res['data']['popUpRemainTimes'] > 0) {
-      //可签到
-      body = {"floorToken":"f1d574ec-b1e9-43ba-aa84-b7a757f27f0e","dataSourceCode":"signIn","argMap":{"currSignCursor": res['data']['dayBeanAmount']}}
-      const signRes = await pg_interact_interface_invoke(body);
-      console.log(`京东会员第${res['data']['dayBeanAmount']}天签到结果；${JSON.stringify(signRes)}`)
-      if (signRes.success && signRes['data']) {
-        console.log(`京东会员第${res['data']['dayBeanAmount']}天签到成功。获得${signRes['data']['rewardVos'] && signRes['data']['rewardVos'][0]['jingBeanVo'] && signRes['data']['rewardVos'][0]['jingBeanVo']['beanNum']}京豆\n`)
-      }
-    } else {
-      console.log(`京东会员第${res['data']['dayBeanAmount'] - 1}天已经签到了`)
+    body = {"floorToken":"f1d574ec-b1e9-43ba-aa84-b7a757f27f0e","dataSourceCode":"signIn","argMap":{"currSignCursor": res['data']['dayBeanAmount']}}
+    const signRes = await pg_interact_interface_invoke(body);
+    console.log(`京东会员第${res['data']['dayBeanAmount']}天签到结果；${JSON.stringify(signRes)}`)
+    if (signRes.success && signRes['data']) {
+      console.log(`京东会员第${res['data']['dayBeanAmount']}天签到成功。获得${signRes['data']['rewardVos'] && signRes['data']['rewardVos'][0]['jingBeanVo'] && signRes['data']['rewardVos'][0]['jingBeanVo']['beanNum']}京豆\n`)
     }
+    // if (res['data']['popUpRemainTimes'] > 0) {
+    //   //可签到
+    //   body = {"floorToken":"f1d574ec-b1e9-43ba-aa84-b7a757f27f0e","dataSourceCode":"signIn","argMap":{"currSignCursor": res['data']['dayBeanAmount']}}
+    //   const signRes = await pg_interact_interface_invoke(body);
+    //   console.log(`京东会员第${res['data']['dayBeanAmount']}天签到结果；${JSON.stringify(signRes)}`)
+    //   if (signRes.success && signRes['data']) {
+    //     console.log(`京东会员第${res['data']['dayBeanAmount']}天签到成功。获得${signRes['data']['rewardVos'] && signRes['data']['rewardVos'][0]['jingBeanVo'] && signRes['data']['rewardVos'][0]['jingBeanVo']['beanNum']}京豆\n`)
+    //   }
+    // } else {
+    //   console.log(`京东会员第${res['data']['dayBeanAmount'] - 1}天已经签到了`)
+    // }
   }
 }
 function pg_interact_interface_invoke(body) {
