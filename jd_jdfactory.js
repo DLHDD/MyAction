@@ -107,7 +107,7 @@ function showMsg() {
     if (!jdNotify) {
       $.msg($.name, '', `${message}`);
     } else {
-      $.log(`京东账号${$.index}${$.nickName}\n${message}`);
+      $.log(`${message}`);
     }
     if (new Date().getHours() === 12) {
       $.msg($.name, '', `${message}`);
