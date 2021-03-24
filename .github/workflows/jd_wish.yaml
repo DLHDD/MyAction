@@ -6,7 +6,7 @@ name: 京东众筹许愿池
 on:
     workflow_dispatch:
     schedule:
-        - cron: "16 22 * * *"
+        - cron: "16 22,5 * * *"
     watch:
         types: [started]
     repository_dispatch:
