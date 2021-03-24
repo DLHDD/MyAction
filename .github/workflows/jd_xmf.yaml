@@ -5,8 +5,6 @@ name: 小魔方
 
 on:
     workflow_dispatch:
-    schedule:
-        - cron: "10 1 * * *"
     watch:
         types: [started]
     repository_dispatch:
